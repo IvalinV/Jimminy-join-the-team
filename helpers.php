@@ -1,7 +1,16 @@
 <?php
+    /**
+     * @return never
+     */
+    function dd(...$vars)
+    {
+        if (!in_array(\PHP_SAPI, ['cli', 'phpdbg'], true) && !headers_sent()) {
+            header('HTTP/1.1 500 Internal Server Error');
+        }
 
-function dd($variable){
-    echo '<pre>';
-    die(var_dump($variable));
-    echo '</pre>';
-}
+        foreach ($vars as $v) {
+            var_dump($v);
+        }
+
+        exit(1);
+    }

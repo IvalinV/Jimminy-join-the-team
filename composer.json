@@ -11,5 +11,7 @@
 			"email": "krisityan.zhelyazkov9@gmail.com"
 		}
 	],
-	"require": {}
+	"require-dev": {
+		"phpunit/phpunit": "9"
+	}
 }
